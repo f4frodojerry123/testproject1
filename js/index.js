@@ -49,8 +49,8 @@ window.addEventListener("scroll", function () {
     let left_num
     let right_num
     if (width < 428) {
-        left_num = 3000
-        right_num = 3100
+        left_num = 2500
+        right_num = 2600
     } else {
         left_num = 500
         right_num = 1100
