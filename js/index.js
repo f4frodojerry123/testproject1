@@ -12,7 +12,6 @@ nav_btn.addEventListener("click", function (e) {
 let width = screen.width
 window.addEventListener("resize", function () {
     width = screen.width
-    console.log(width);
     if (width <= 375) {
         nav.forEach(element => {
             element.classList.remove("on")
@@ -45,16 +44,17 @@ let left_text = document.getElementById("left_t")
 let right_text = document.getElementById("right_t")
 window.addEventListener("scroll", function () {
     let ScrollPosition = window.scrollY;
-    console.log(ScrollPosition);
-    let left_num
-    let right_num
-    if (width < 428) {
-        left_num = 2500
-        right_num = 2600
-    } else {
-        left_num = 500
-        right_num = 1100
-    }
+    let bot = left_text.offsetTop
+    let height = window.innerHeight
+    let left_num = bot - height
+    let right_num = left_num + 100
+    // if (width < 428) {
+    //     left_num = 2500
+    //     right_num = 2600
+    // } else {
+    //     left_num = 500
+    //     right_num = 1100
+    // }
     if (ScrollPosition > left_num) {
         left_text.classList.add("left")
     }
@@ -71,14 +71,14 @@ function data() {
 
     let pic = document.querySelectorAll(".pic2>img")
     let name = document.querySelectorAll(".info>h2")
-    console.log(name);
+    // console.log(name);
     let email = document.querySelectorAll(".info>p")
-    console.log(email);
+    // console.log(email);
     axios.get('https://randomuser.me/api/?results=4&')
         .then(res => {
 
             let arr = res.data.results
-            console.log(arr[0]);
+
             for (let i = 0; i < arr.length; i++) {
                 pic[i].src = arr[i].picture.large
                 name[i].innerHTML = arr[i].name.first + '<br>' + arr[i].name.last
