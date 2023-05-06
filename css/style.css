@@ -830,6 +830,7 @@ li {
   width: 50%;
   margin-right: 50px;
   position: relative;
+  cursor: pointer;
 }
 @media all and (max-width: 1919px) {
   .mid .bottom .box .speaker .pic {
