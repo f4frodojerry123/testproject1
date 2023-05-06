@@ -1,0 +1,58 @@
+h1 {
+    font-size: 74.6px;
+    font-weight: 700;
+    @include xl{
+        font-size: 44px;
+    }
+    @include sm{
+        font-size: 32px;
+    }
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 700;
+    @include xl{
+        font-size: 32px;
+    }
+    @include sm{
+        font-size: 24px;
+    }
+}
+
+h3{
+    font-size: 32px;
+    @include xl{
+        font-size: 26px;
+    }
+    @include sm{
+        font-size: 20px;
+    }
+}
+
+p {
+    font-size: 20px;
+
+    @include sm{
+        font-size: 16px;
+    }
+}
+
+li{
+    font-size: 18px;
+    @include sm{
+        font-size: 16px;
+    }
+}
+
+.wrapper {
+    
+    font-family: "Noto Sans TC";
+    margin: 0 auto;
+    padding-top: 53px;
+}
+.container{
+    max-width: 1920px;
+    width: 100%;
+    margin:  0 auto;
+}
