@@ -40,17 +40,20 @@ speakers.forEach(element => {
 })
 
 // slide
-let left_num = 500
-let right_num = 1100
+
 let left_text = document.getElementById("left_t")
 let right_text = document.getElementById("right_t")
 window.addEventListener("scroll", function () {
     let ScrollPosition = window.scrollY;
     console.log(ScrollPosition);
-
-    if (width > 428) {
-        left_num += 3000
+    let left_num
+    let right_num
+    if (width < 428) {
+        left_num = 3000
         right_num = 3100
+    } else {
+        left_num = 500
+        right_num = 1100
     }
     if (ScrollPosition > left_num) {
         left_text.classList.add("left")
@@ -65,25 +68,25 @@ window.addEventListener("scroll", function () {
 // api
 
 function data() {
-    
+
     let pic = document.querySelectorAll(".pic2>img")
     let name = document.querySelectorAll(".info>h2")
     console.log(name);
     let email = document.querySelectorAll(".info>p")
     console.log(email);
     axios.get('https://randomuser.me/api/?results=4&')
-    .then(res => {
+        .then(res => {
 
-        let arr = res.data.results
-        console.log(arr[0]);
-        for (let i = 0; i < arr.length; i++) {
-            pic[i].src = arr[i].picture.large
-            name[i].innerHTML = arr[i].name.first + '<br>'+ arr[i].name.last
-            email[i].innerHTML =  arr[i].email
-            
-        }
-    })
-    .catch(err => console.log(err))
+            let arr = res.data.results
+            console.log(arr[0]);
+            for (let i = 0; i < arr.length; i++) {
+                pic[i].src = arr[i].picture.large
+                name[i].innerHTML = arr[i].name.first + '<br>' + arr[i].name.last
+                email[i].innerHTML = arr[i].email
+
+            }
+        })
+        .catch(err => console.log(err))
 };
 data()
 
